@@ -52,65 +52,73 @@
         </div>
     </header>
 
-    <section id="about" class="content-section bg-light">
+    <section id="about" class="content-section bg-light text-center">
         <div class="container text-center">
             <div class="row">
                 <div class="col-lg-10 mx-auto">
                     <h2>Technology that Benefits an Unchanging World</h2>
                     <p class="lead mb-0"><span>Using present-day solutions to reinvigorate old ideas that were already good enough.</span></p>
-                    <p class="lead mb-0">Project Crayon can find a way to expose your retro/indie games to new audiences.</p>
+                    <p class="lead">Project Crayon can find a way to expose your retro/indie games to new audiences.</p>
                 </div>
             </div>
-        </div>a
+        </div>
+        <div class="container text-center">
+            <p class="mb-5"></p>
+        </div>
     </section>
 
-    <section id="games" class="content-section bg-primary text-white text-center">
+    <section id="games" class="content-section bg-secondary text-white text-center">
+<!--
+    </section>
+    <section id="publishing" class="content-section bg-primary text-white text-center">
+ -->
         <div class="container">
             <div class="content-section-heading">
-                <h3 class="text-secondary mb-0">Games</h3>
-                <h2 class="mb-2">In Active Development</h2>
-                <p class="mb-1">The Shizuka Franchise developed by Kivutar.</h2>
-                <p class="mb-5"><em>Maybe coming soon to a home console system near you!</em></h2>
+                <h3 class="text-muted mb-0 fs-4">Games</h3>
+                <h2 class="mb-2">The Shizuka Franchise</h2>
+                <p class="mb-1">In Active Development by Kivutar.</h2>
+                <p class="mb-5"><em>Soon to be ported to home console systems near you!</em></h2>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6 col-lg-4 mb-4">
+        <div class="row mx-5">
+            <div class="col-sm-12 col-lg-4 mb-4 px-lg-5">
                 <picture>
-                  <source  media="(max-width: 768px)" srcset="assets/img/shrinemaiden-noshadow.png">
+                  <source  media="(max-width: 992px)" srcset="assets/img/shrinemaiden-noshadow.png">
                   <img class="img-fluid"                 src="assets/img/shrinemaiden.png" >
                 </picture>
             </div>
-            <div class="col-md-6 col-lg-4 mb-4">
-                <picture>
-                  <source  media="(max-width: 768px)" srcset="assets/img/mystic_seals-noshadow.png">
+            <div class="col-sm-12 col-lg-4 mb-4 px-lg-5">
+                <a href="https://www.mystic-seals.com" target="_blank"><picture>
+                  <source  media="(max-width: 992px)" srcset="assets/img/mystic_seals-noshadow.png">
                   <img class="img-fluid"                 src="assets/img/mystic_seals.png" >
-                </picture>
+                </a></picture>
             </div>
-            <div class="col-md-6 col-lg-4 mb-4">
+            <div class="col-sm-12 col-lg-4 mb-4 px-lg-5">
                 <picture>
-                  <source  media="(max-width: 768px)" srcset="assets/img/bubble-noshadow.png">
+                  <source  media="(max-width: 992px)" srcset="assets/img/bubble-noshadow.png">
                   <img class="img-fluid"                 src="assets/img/bubble.png" >
                 </picture>
             </div>
         </div>
     </section>
-    <section id="publishing" class="content-section bg-primary text-white text-center">
+
+    <section id="publishing" class="content-section bg-light text-dark text-center">
         <div class="container">
             <div class="content-section-heading">
-                <h3 class="text-secondary mb-0">Publishing</h3>
-                <h2 class="mb-4">Console Game Publishing as a Service</h2>
-                <h4 class="mb-4">
-                    Project Crayon believes that game publishing rights belong in the hands of the developers.
+                <h3 class="text-secondary mb-0">Porting and Publishing</h3>
+                <h2 class="mb-4">Indie and Homebrew Porting Services</h2>
+                <p class="mb-4">
+                    Project Crayon can help you transform homebrew cartrige and fantasy console games into digital releases on Playstation, Switch, XBOX, and Steam.
+                </p>
+                <h4 class="mb-2">
+                    Have a game that you wish you could get published to game consoles?
                 </h4>
-                <h4 class="mb-4">
-                    We help you get your game in front new audiences with no long-term licensing committments.
-                </h4>
-                <p class="mb-2">Do you have a game that you wish you could get published to game consoles?</p>
                 <a href="mailto:justask@projectcrayon.dev" style="font-size: 25px; color: rgb(200,200,255);"><span>justask@projectcrayon.dev</span></a>
             </div>
         </div>
     </section>
 
+<template>  <!-- commented out -->
     <section id="projects" class="content-section">  <!-- re-add bg-light once scribble color is fixed -->
         <div class="container">
             <div class="content-section-heading text-center">
@@ -121,6 +129,7 @@
             </div>
         </div>
     </section>
+</template>
 
     <section id="services" class="content-section bg-primary text-white text-center">
         <div class="container">
@@ -189,7 +198,7 @@
         </div><a class="scroll-to-top rounded" href="#page-top"><i class="fa fa-angle-up"></i></a>
     </footer>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js//aos-3.0.0.js"></script>
+    <script src="assets/js/aos-3.0.0.js"></script>
     <script>
         AOS.init({once: true});
     </script>
