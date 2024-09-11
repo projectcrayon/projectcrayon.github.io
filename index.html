@@ -13,6 +13,33 @@
     <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
     <link rel="stylesheet" href="assets/css/bs-theme-overrides.css">
     <link rel="stylesheet" href="assets/css/aos-3.0.0.css" />
+
+<style>
+@keyframes fadeTapper {
+      0% {opacity: 0;}
+     25% {opacity: 1;}
+     75% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+/* start as 'paused' so that it's invisible. We will unpause it later. */
+#tapperBanner {
+    animation: fadeTapper 4s ease-in-out 1 forwards paused
+}
+
+</style>
+
+<script>
+function fadeInOut() {
+    var image = document.getElementById("tapperBanner");
+
+    // this is supposed to trigger a relayout and allow the animation to repeat. It doesn't seem to work.
+    image.style.animation = 'none';
+    image.offsetHeight; /* trigger reflow */
+    image.style.animation = null; 
+    image.style.animationPlayState = "running";
+}
+</script>
 </head>
 
 <body id="page-top">
@@ -36,7 +63,17 @@
         </div>
     </nav>
     <header class="" style="background: var(--bs-primary-border-subtle); background-color: rgb(200, 200, 200);">
-        <img src="/crayonolith-banner.webp" style="max-width: 100%;" />
+        <div>
+        <figure>
+            <svg style="position: absolute;" id="crayonolithBanner" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 4096 2160" preserveAspectRatio="xMinYMin meet" >
+                <image color-interpolation="linearRGB" width="4096" height="2160" href="/crayonolith-banner.webp" id="bannerswapper"></image>
+            </svg>
+            <svg id="tapperBanner" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 4096 2160" preserveAspectRatio="xMinYMin meet" >
+                <image color-interpolation="linearRGB" width="4096" height="2160" href="/crayonolith-banner-tapper.webp" id="bannerswapper"></image>
+                <a href="javascript:void(0);" onclick="fadeInOut();"><polygon points="2950,440 3310,470 3430,640 3414,844 2916,1596 2620,1465 2412,1295" fill="#fff" opacity="0.0"/></a>
+            </svg>
+        </figure>
+        </div>
         <div class="container my-auto text-center" style="transform: rotate(0deg);/*position: fixed;*//*right: 15px;*//*top: 15px;*//*width: 50px;*//*height: 50px;*/">
             <div class="mb-3"><br/></div>
             <div 
@@ -44,7 +81,7 @@
                 data-aos-delay="500"
                 data-aos-duration="2000"
             >
-                <h1 class="mb-2" style="font-size:6vw; color: rgb(255, 255, 255); text-shadow: 3px 3px rgb(94, 22, 97);">Project Crayon</h1>
+                <h1 class="mb-2" style="font-size:6vw; color: rgb(255, 255, 255); text-shadow: 0.25vw 0.25vw rgb(94, 22, 97);">Project Crayon</h1>
             </div>
             <div class="mb-5"><br/><br/></div>
         </div>
