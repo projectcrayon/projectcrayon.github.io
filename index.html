@@ -1,241 +1,1004 @@
 <!DOCTYPE html>
-<html data-bs-theme="light" lang="en">
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Project Crayon</title>
+    <meta
+      name="description"
+      content="Technology that benefits an unchanging world."
+    />
+    <meta property="og:title" content="Project Crayon" />
+    <meta
+      property="og:description"
+      content="An Independent Game Developer and Digital Publisher. We work on all sorts of cool stuff."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/images/galaxy-770.webp" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/favicon/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="preload"
+      href="/assets/fonts/ProximaNovaAltBlack.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <link rel="icon" href="favicon.png">
-    <title>Home - Project Crayon</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="assets/css/Source%20Sans%20Pro.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
-    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
-    <link rel="stylesheet" href="assets/css/bs-theme-overrides.css">
-    <link rel="stylesheet" href="assets/css/aos-3.0.0.css" />
-
-<style>
-@keyframes fadeTapper {
-      0% {opacity: 0;}
-     25% {opacity: 1;}
-     75% {opacity: 1;}
-    100% {opacity: 0;}
-}
-
-/* start as 'paused' so that it's invisible. We will unpause it later. */
-#tapperBanner {
-    animation: fadeTapper 4s ease-in-out 1 forwards paused
-}
-
-</style>
-
-<script>
-function fadeInOut() {
-    var image = document.getElementById("tapperBanner");
-
-    // this is supposed to trigger a relayout and allow the animation to repeat. It doesn't seem to work.
-    image.style.animation = 'none';
-    image.offsetHeight; /* trigger reflow */
-    image.style.animation = null; 
-    image.style.animationPlayState = "running";
-}
-</script>
-</head>
-
-<body id="page-top">
-    <a class="menu-toggle rounded" href="#"><i class="fa fa-bars"></i></a>
-    <nav class="navbar navbar-expand" id="sidebar-wrapper">
-        <div class="container"><button data-bs-toggle="collapse" class="navbar-toggler d-none" data-bs-target="#"></button>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav sidebar-nav" id="sidebar-nav">
-                    <li class="nav-item sidebar-brand"><a class="nav-link active" href="#page-top">Project Crayon</a></li>
-                    <li class="nav-item sidebar-nav-item"><a class="nav-link" href="#page-top">Home</a></li>
-                    <li class="nav-item sidebar-nav-item"><a class="nav-link" href="#games">Games</a></li>
-                    <li class="nav-item sidebar-nav-item"><a class="nav-link" href="#publishing">Publishing</a></li>
-                    <li class="nav-item sidebar-nav-item"><a class="nav-link" href="#services">Technology</a></li>
-                    <!-- <li class="nav-item sidebar-nav-item"><a class="nav-link" href="#projects">Projects</a></li> -->
-
-                    <li class="nav-item sidebar-nav-item"><a class="nav-link" href="jobs">Jobs</a></li>
-                    <li class="nav-item sidebar-nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item sidebar-nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <header class="" style="background: var(--bs-primary-border-subtle); background-color: rgb(200, 200, 200);">
-        <div>
-        <figure>
-            <svg style="position: absolute;" id="crayonolithBanner" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 4096 2160" preserveAspectRatio="xMinYMin meet" >
-                <image color-interpolation="linearRGB" width="4096" height="2160" href="/crayonolith-banner.webp" id="bannerswapper"></image>
-            </svg>
-            <svg id="tapperBanner" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 4096 2160" preserveAspectRatio="xMinYMin meet" >
-                <image color-interpolation="linearRGB" width="4096" height="2160" href="/crayonolith-banner-tapper.webp" id="bannerswapper"></image>
-                <a href="javascript:void(0);" onclick="fadeInOut();"><polygon points="2950,440 3310,470 3430,640 3414,844 2916,1596 2620,1465 2412,1295" fill="#fff" opacity="0.0"/></a>
-            </svg>
-        </figure>
-        </div>
+    <!-- Main stylesheet -->
+    <link rel="preload" href="/styles.css" as="style" id="preload-css" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link
+      rel="preload"
+      as="image"
+      type="image/avif"
+      href="/assets/banner/stars-3600.avif"
+      imagesrcset="
+        /assets/banner/stars-1200.avif 1200w,
+        /assets/banner/stars-1800.avif 1800w,
+        /assets/banner/stars-2400.avif 2400w,
+        /assets/banner/stars-3600.avif 3600w,
+        /assets/banner/stars-7200.avif 7200w
+      "
+      imagesizes="100vw"
+    />
+    <link
+      rel="preload"
+      as="image"
+      type="image/avif"
+      href="/assets/banner/earth-3600.avif"
+      imagesrcset="
+        /assets/banner/earth-1800.avif 1800w,
+        /assets/banner/earth-3600.avif 3600w,
+        /assets/banner/earth-7200.avif 7200w
+      "
+      imagesizes="100vw"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      type="image/avif"
+      href="/assets/banner/boy-trim-1349.avif"
+      imagesrcset="
+        /assets/banner/boy-trim-768.avif 768w,
+        /assets/banner/boy-trim-1349.avif 1349w
+      "
+      imagesizes="100vw"
+    />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+  </head>
+  <body>
+    <!-- Header / Nav -->
+    <header class="site-header">
+      <div class="container nav">
+        <a href="#home" class="brand"
+          ><span class="project-highlight">Project</span>
+          <span class="brand-accent">Crayon</span></a
+        >
+        <input
+          id="nav-toggle"
+          class="nav-toggle"
+          type="checkbox"
+          aria-label="Toggle navigation"
+        />
+        <label for="nav-toggle" class="burger" aria-hidden="true"
+          ><span></span
+        ></label>
+        <nav class="nav-links">
+          <a href="#games">Games</a>
+          <a href="#publishing">Publishing</a>
+          <a href="#technology">Technology</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
     </header>
 
-    <section id="about" class="content-section bg-light text-center">
-        <div class="container text-center">
-            <div class="row">
-                <div 
-                    data-aos="flip-down"
-                    data-aos-delay="500"
-                    data-aos-duration="2000"
+    <!-- Hero image -->
+    <section id="home" class="hero" aria-label="Hero background">
+      <div
+        class="hero__scene"
+        role="img"
+        aria-label="Collage of arcade heroes, consoles, and planets floating in a galaxy"
+      >
+        <picture class="hero__layer">
+          <source
+            type="image/avif"
+            srcset="
+              assets/banner/stars-1200.avif 1200w,
+              assets/banner/stars-1800.avif 1800w,
+              assets/banner/stars-2400.avif 2400w,
+              assets/banner/stars-3600.avif 3600w,
+              assets/banner/stars-7200.avif 7200w
+            "
+            sizes="100vw"
+          />
+          <source
+            type="image/webp"
+            srcset="
+              assets/banner/stars-1200.webp 1200w,
+              assets/banner/stars-1800.webp 1800w,
+              assets/banner/stars-2400.webp 2400w,
+              assets/banner/stars-3600.webp 3600w,
+              assets/banner/stars-7200.webp 7200w
+            "
+            sizes="100vw"
+          />
+          <img
+            class="hero__piece hero__piece--stars hero__piece--background"
+            src="assets/banner/stars-3600.png"
+            srcset="
+              assets/banner/stars-1200.png 1200w,
+              assets/banner/stars-1800.png 1800w,
+              assets/banner/stars-2400.png 2400w,
+              assets/banner/stars-3600.png 3600w,
+              assets/banner/stars-7200.png 7200w
+            "
+            sizes="100vw"
+            alt=""
+            width="7200"
+            height="2400"
+            decoding="async"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </picture>
+        <picture class="hero__layer">
+          <source
+            type="image/avif"
+            srcset="
+              assets/banner/earth-1800.avif 1800w,
+              assets/banner/earth-3600.avif 3600w,
+              assets/banner/earth-7200.avif 7200w
+            "
+            sizes="100vw"
+          />
+          <source
+            type="image/webp"
+            srcset="
+              assets/banner/earth-1800.webp 1800w,
+              assets/banner/earth-3600.webp 3600w,
+              assets/banner/earth-7200.webp 7200w
+            "
+            sizes="100vw"
+          />
+          <img
+            class="hero__piece hero__piece--earth hero__piece--background"
+            src="assets/banner/earth-3600.png"
+            srcset="
+              assets/banner/earth-1800.png 1800w,
+              assets/banner/earth-3600.png 3600w,
+              assets/banner/earth-7200.png 7200w
+            "
+            sizes="100vw"
+            alt=""
+            width="7200"
+            height="2400"
+            decoding="async"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </picture>
+        <div class="hero__stage">
+          <picture class="hero__layer">
+            <source
+              type="image/avif"
+              srcset="
+                assets/banner/stroke-trim-800.avif   800w,
+                assets/banner/stroke-trim-1200.avif 1200w,
+                assets/banner/stroke-trim-1600.avif 1600w,
+                assets/banner/stroke-trim-2048.avif 2048w,
+                assets/banner/stroke-trim-3348.avif 3348w
+              "
+              sizes="(max-width: 1023px) 71vw, 820px"
+            />
+            <source
+              type="image/webp"
+              srcset="
+                assets/banner/stroke-trim-800.webp   800w,
+                assets/banner/stroke-trim-1200.webp 1200w,
+                assets/banner/stroke-trim-1600.webp 1600w,
+                assets/banner/stroke-trim-2048.webp 2048w,
+                assets/banner/stroke-trim-3348.webp 3348w
+              "
+              sizes="(max-width: 1023px) 71vw, 820px"
+            />
+            <img
+              class="hero__piece hero__piece--stroke hero__piece--foreground"
+              src="assets/banner/stroke-trim-1600.png"
+              srcset="
+                assets/banner/stroke-trim-800.png   800w,
+                assets/banner/stroke-trim-1200.png 1200w,
+                assets/banner/stroke-trim-1600.png 1600w,
+                assets/banner/stroke-trim-2048.png 2048w,
+                assets/banner/stroke-trim-3348.png 3348w
+              "
+              sizes="(max-width: 1023px) 71vw, 820px"
+              alt=""
+              width="3348"
+              height="1391"
+              decoding="async"
+              loading="eager"
+            />
+          </picture>
+          <picture class="hero__layer">
+            <source
+              type="image/avif"
+              srcset="
+                assets/banner/boy-trim-768.avif   768w,
+                assets/banner/boy-trim-1349.avif 1349w
+              "
+              sizes="100vw"
+            />
+            <source
+              type="image/webp"
+              srcset="
+                assets/banner/boy-trim-768.webp   768w,
+                assets/banner/boy-trim-1349.webp 1349w
+              "
+              sizes="100vw"
+            />
+            <img
+              class="hero__piece hero__piece--boy hero__piece--foreground"
+              src="assets/banner/boy-trim-1349.png"
+              srcset="
+                assets/banner/boy-trim-768.png   768w,
+                assets/banner/boy-trim-1349.png 1349w
+              "
+              sizes="100vw"
+              alt=""
+              width="1349"
+              height="1406"
+              decoding="async"
+              loading="eager"
+              fetchpriority="high"
+            />
+          </picture>
+          <picture class="hero__layer">
+            <source
+              type="image/avif"
+              srcset="
+                assets/banner/arcade-trim-192.avif 192w,
+                assets/banner/arcade-trim-384.avif 384w,
+                assets/banner/arcade-trim-512.avif 512w,
+                assets/banner/arcade-trim-766.avif 766w
+              "
+              sizes="(max-width: 1023px) 16vw, 180px"
+            />
+            <source
+              type="image/webp"
+              srcset="
+                assets/banner/arcade-trim-192.webp 192w,
+                assets/banner/arcade-trim-384.webp 384w,
+                assets/banner/arcade-trim-512.webp 512w,
+                assets/banner/arcade-trim-766.webp 766w
+              "
+              sizes="(max-width: 1023px) 16vw, 180px"
+            />
+            <img
+              class="hero__piece hero__piece--arcade hero__piece--foreground"
+              src="assets/banner/arcade-trim-384.png"
+              srcset="
+                assets/banner/arcade-trim-192.png 192w,
+                assets/banner/arcade-trim-384.png 384w,
+                assets/banner/arcade-trim-512.png 512w,
+                assets/banner/arcade-trim-766.png 766w
+              "
+              sizes="(max-width: 1023px) 16vw, 180px"
+              alt=""
+              width="766"
+              height="1157"
+              decoding="async"
+              loading="eager"
+            />
+          </picture>
+          <picture class="hero__layer">
+            <source
+              type="image/avif"
+              srcset="
+                assets/banner/tabby-cat-240.avif   240w,
+                assets/banner/tabby-cat-480.avif   480w,
+                assets/banner/tabby-cat-600.avif   600w,
+                assets/banner/tabby-cat-900.avif   900w,
+                assets/banner/tabby-cat-1200.avif 1200w
+              "
+              sizes="(max-width: 1023px) 18vw, 210px"
+            />
+            <source
+              type="image/webp"
+              srcset="
+                assets/banner/tabby-cat-240.webp   240w,
+                assets/banner/tabby-cat-480.webp   480w,
+                assets/banner/tabby-cat-600.webp   600w,
+                assets/banner/tabby-cat-900.webp   900w,
+                assets/banner/tabby-cat-1200.webp 1200w
+              "
+              sizes="(max-width: 1023px) 18vw, 210px"
+            />
+            <img
+              class="hero__piece hero__piece--tabby hero__piece--foreground"
+              src="assets/banner/tabby-cat-480.png"
+              srcset="
+                assets/banner/tabby-cat-240.png   240w,
+                assets/banner/tabby-cat-480.png   480w,
+                assets/banner/tabby-cat-600.png   600w,
+                assets/banner/tabby-cat-900.png   900w,
+                assets/banner/tabby-cat-1200.png 1200w
+              "
+              sizes="(max-width: 1023px) 18vw, 210px"
+              alt="Floating space cat"
+              width="1200"
+              height="1500"
+              decoding="async"
+              loading="eager"
+            />
+          </picture>
+          <picture class="hero__layer">
+            <source
+              type="image/avif"
+              srcset="
+                assets/banner/handheld-trim-256.avif 256w,
+                assets/banner/handheld-trim-373.avif 373w
+              "
+              sizes="100vw"
+            />
+            <source
+              type="image/webp"
+              srcset="
+                assets/banner/handheld-trim-256.webp 256w,
+                assets/banner/handheld-trim-373.webp 373w
+              "
+              sizes="100vw"
+            />
+            <img
+              class="hero__piece hero__piece--handheld hero__piece--foreground"
+              src="assets/banner/handheld-trim-373.png"
+              srcset="
+                assets/banner/handheld-trim-256.png 256w,
+                assets/banner/handheld-trim-373.png 373w
+              "
+              sizes="100vw"
+              alt=""
+              width="373"
+              height="393"
+              decoding="async"
+              loading="eager"
+            />
+          </picture>
+          <picture class="hero__layer">
+            <source
+              type="image/avif"
+              srcset="
+                assets/banner/crayonolith-trim-512.avif 512w,
+                assets/banner/crayonolith-trim-707.avif 707w
+              "
+              sizes="100vw"
+            />
+            <source
+              type="image/webp"
+              srcset="
+                assets/banner/crayonolith-trim-512.webp 512w,
+                assets/banner/crayonolith-trim-707.webp 707w
+              "
+              sizes="100vw"
+            />
+            <img
+              class="hero__piece hero__piece--crayonolith hero__piece--foreground"
+              src="assets/banner/crayonolith-trim-707.png"
+              srcset="
+                assets/banner/crayonolith-trim-512.png 512w,
+                assets/banner/crayonolith-trim-707.png 707w
+              "
+              sizes="100vw"
+              alt=""
+              width="707"
+              height="1420"
+              decoding="async"
+              loading="eager"
+            />
+          </picture>
+          <button
+            class="hero__crayon-trigger"
+            type="button"
+            aria-label="Press the crayon mascot"
+          ></button>
+          <div class="hero__layer hero__layer--aho" aria-hidden="true">
+            <div class="hero__piece hero__piece--aho hero__piece--foreground">
+              <div class="hero__aho-body">
+                <picture class="hero__aho-frame hero__aho-frame--primary">
+                  <source
+                    type="image/avif"
+                    srcset="
+                      assets/images/aho-240.avif 240w,
+                      assets/images/aho-360.avif 360w,
+                      assets/images/aho-480.avif 480w,
+                      assets/images/aho-640.avif 640w,
+                      assets/images/aho-800.avif 800w
+                    "
+                    sizes="(max-width: 480px) 140px, (max-width: 880px) 180px, 220px"
+                  />
+                  <source
+                    type="image/webp"
+                    srcset="
+                      assets/images/aho-240.webp 240w,
+                      assets/images/aho-360.webp 360w,
+                      assets/images/aho-480.webp 480w,
+                      assets/images/aho-640.webp 640w,
+                      assets/images/aho-800.webp 800w
+                    "
+                    sizes="(max-width: 480px) 140px, (max-width: 880px) 180px, 220px"
+                  />
+                  <img
+                    src="assets/images/aho.png"
+                    alt=""
+                    width="983"
+                    height="568"
+                    decoding="async"
+                    loading="eager"
+                  />
+                </picture>
+                <picture class="hero__aho-frame hero__aho-frame--flip">
+                  <source
+                    type="image/avif"
+                    srcset="
+                      assets/images/aho-flip-240.avif 240w,
+                      assets/images/aho-flip-360.avif 360w,
+                      assets/images/aho-flip-480.avif 480w,
+                      assets/images/aho-flip-640.avif 640w,
+                      assets/images/aho-flip-800.avif 800w
+                    "
+                    sizes="(max-width: 480px) 140px, (max-width: 880px) 180px, 220px"
+                  />
+                  <source
+                    type="image/webp"
+                    srcset="
+                      assets/images/aho-flip-240.webp 240w,
+                      assets/images/aho-flip-360.webp 360w,
+                      assets/images/aho-flip-480.webp 480w,
+                      assets/images/aho-flip-640.webp 640w,
+                      assets/images/aho-flip-800.webp 800w
+                    "
+                    sizes="(max-width: 480px) 140px, (max-width: 880px) 180px, 220px"
+                  />
+                  <img
+                    src="assets/images/aho_flip.png"
+                    alt=""
+                    width="1344"
+                    height="768"
+                    decoding="async"
+                    loading="eager"
+                  />
+                </picture>
+              </div>
+              <div
+                class="hero__aho-dots"
+                data-count="0"
+                aria-hidden="true"
+              >
+                <span class="hero__aho-dot"></span>
+                <span class="hero__aho-dot"></span>
+                <span class="hero__aho-dot"></span>
+              </div>
+            </div>
+          </div>
+          <picture class="hero__layer">
+            <source
+              type="image/avif"
+              srcset="
+                assets/banner/cubes-trim-512.avif   512w,
+                assets/banner/cubes-trim-1024.avif 1024w,
+                assets/banner/cubes-trim-1200.avif 1200w,
+                assets/banner/cubes-trim-2097.avif 2097w
+              "
+              sizes="(max-width: 1023px) 45vw, 520px"
+            />
+            <source
+              type="image/webp"
+              srcset="
+                assets/banner/cubes-trim-512.webp   512w,
+                assets/banner/cubes-trim-1024.webp 1024w,
+                assets/banner/cubes-trim-1200.webp 1200w,
+                assets/banner/cubes-trim-2097.webp 2097w
+              "
+              sizes="(max-width: 1023px) 45vw, 520px"
+            />
+            <img
+              class="hero__piece hero__piece--cubes hero__piece--foreground"
+              src="assets/banner/cubes-trim-1024.png"
+              srcset="
+                assets/banner/cubes-trim-512.png   512w,
+                assets/banner/cubes-trim-1024.png 1024w,
+                assets/banner/cubes-trim-1200.png 1200w,
+                assets/banner/cubes-trim-2097.png 2097w
+              "
+              sizes="(max-width: 1023px) 45vw, 520px"
+              alt=""
+              width="2097"
+              height="2171"
+              decoding="async"
+              loading="eager"
+            />
+          </picture>
+        </div>
+      </div>
+    </section>
+
+    <!-- Intro block under the banner -->
+    <section class="intro">
+      <div class="container intro__grid reveal">
+        <div class="intro__text">
+          <h1 class="title-xl">
+            <span class="project-highlight">PROJECT</span>
+            <span class="brand-accent">CRAYON</span>
+          </h1>
+          <p class="lead">
+            An Independent Game Developer<br />and Digital Publisher
+          </p>
+          <p class="sub">We work on all sorts of cool stuff.</p>
+        </div>
+        <div class="intro__art">
+          <picture>
+            <source
+              type="image/avif"
+              srcset="
+                assets/images/crayon-165.avif 165w,
+                assets/images/crayon-330.avif 330w
+              "
+              sizes="165px"
+            />
+            <source
+              type="image/webp"
+              srcset="
+                assets/images/crayon-165.webp 165w,
+                assets/images/crayon-330.webp 330w
+              "
+              sizes="165px"
+            />
+            <img
+              src="assets/images/crayon-165.webp"
+              alt="Crayon"
+              class="intro__interactive"
+              width="165"
+              height="165"
+              loading="lazy"
+              decoding="async"
+              role="button"
+              tabindex="0"
+              aria-label="Animate the Project Crayon mascot"
+            />
+          </picture>
+        </div>
+      </div>
+    </section>
+
+    <!-- Games -->
+    <section id="games" class="section">
+      <div class="container reveal">
+        <h2 class="h2 center">Games</h2>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card__media">
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="
+                    assets/images/arcana-193.avif 193w,
+                    assets/images/arcana-386.avif 386w,
+                    assets/images/arcana-600.avif 600w
+                  "
+                  sizes="(min-width: 1200px) 260px, (min-width: 900px) 30vw, (min-width: 600px) 45vw, 75vw"
+                />
+                <source
+                  type="image/webp"
+                  srcset="
+                    assets/images/arcana-193.webp 193w,
+                    assets/images/arcana-386.webp 386w,
+                    assets/images/arcana-600.webp 600w
+                  "
+                  sizes="(min-width: 1200px) 260px, (min-width: 900px) 30vw, (min-width: 600px) 45vw, 75vw"
+                />
+                <img
+                  src="assets/images/arcana-600.webp"
+                  alt="Arcana Mundi game cover"
+                  width="600"
+                  height="600"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
+            </div>
+            <div class="card__body">
+              <div class="card__platforms">
+                <button
+                  class="chip"
+                  type="button"
+                  data-label="MegaDrive"
+                  aria-label="MegaDrive"
                 >
-                    <h1 class="mb-2" style="font-size:7vw; color: rgba(235, 156, 38, 0.945); text-shadow: 0.25vw 0.25vw rgb(76, 49, 77);">Project Crayon</h1>
-                </div>
-                <div class="mb-5"><br/><br/></div>
-                <div class="col-lg-10 mx-auto">
-                    <h2>Technology that Benefits an Unchanging World</h2>
-                    <p class="lead mb-0"><span>Using present-day solutions to reinvigorate old ideas that were already good enough.</span></p>
-                    <p class="lead">Project Crayon can find a way to expose your retro/indie games to new audiences.</p>
-                </div>
+                  <svg
+                    class="chip__icon"
+                    viewBox="0 0 640 640"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M448 128C554 128 640 214 640 320C640 426 554 512 448 512L192 512C86 512 0 426 0 320C0 214 86 128 192 128L448 128zM192 240C178.7 240 168 250.7 168 264L168 296L136 296C122.7 296 112 306.7 112 320C112 333.3 122.7 344 136 344L168 344L168 376C168 389.3 178.7 400 192 400C205.3 400 216 389.3 216 376L216 344L248 344C261.3 344 272 333.3 272 320C272 306.7 261.3 296 248 296L216 296L216 264C216 250.7 205.3 240 192 240zM432 336C414.3 336 400 350.3 400 368C400 385.7 414.3 400 432 400C449.7 400 464 385.7 464 368C464 350.3 449.7 336 432 336zM496 240C478.3 240 464 254.3 464 272C464 289.7 478.3 304 496 304C513.7 304 528 289.7 528 272C528 254.3 513.7 240 496 240z"
+                    />
+                  </svg>
+                </button>
+                <button
+                  class="chip"
+                  type="button"
+                  data-label="Steam"
+                  aria-label="Steam"
+                >
+                  <svg
+                    class="chip__icon"
+                    viewBox="0 0 640 640"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M568 320C568 457 456.8 568 319.6 568C205.8 568 110 491.7 80.6 387.6L175.8 426.9C182.2 459 210.7 483.3 244.7 483.3C283.9 483.3 316.6 450.9 314.9 409.8L399.4 349.6C451.5 350.9 495.2 308.7 495.2 256.1C495.2 204.5 453.2 162.6 401.5 162.6C349.8 162.6 307.8 204.6 307.8 256.1L307.8 257.3L248.6 343C233.1 342.1 217.9 346.4 205.1 355.1L72 300.1C82.2 172.4 189.1 72 319.6 72C456.8 72 568 183 568 320zM227.7 448.3L197.2 435.7C202.8 447.3 212.5 456.5 224.4 461.5C251.3 472.7 282.2 459.9 293.4 433.1C298.8 420.1 298.9 405.8 293.5 392.8C288.1 379.8 278 369.6 265 364.2C252.1 358.8 238.3 359 226.1 363.6L257.6 376.6C277.4 384.8 286.8 407.5 278.5 427.3C270.2 447.2 247.5 456.5 227.7 448.3zM401.5 193.8C435.9 193.8 463.8 221.7 463.8 256.1C463.8 290.5 435.9 318.4 401.5 318.4C367.1 318.4 339.2 290.5 339.2 256.1C339.2 221.7 367.1 193.8 401.5 193.8zM401.6 302.8C427.4 302.8 448.4 281.8 448.4 256C448.4 230.2 427.4 209.2 401.6 209.2C375.8 209.2 354.8 230.2 354.8 256C354.8 281.8 375.8 302.8 401.6 302.8z"
+                    />
+                  </svg>
+                </button>
+                <button
+                  class="chip"
+                  type="button"
+                  data-label="Itch.io"
+                  aria-label="Itch.io"
+                >
+                  <svg
+                    class="chip__icon"
+                    viewBox="0 0 640 640"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M135.9 98.8C114.2 111.7 71.4 160.8 71 173.7L71 195C71 222.1 96.3 245.8 119.2 245.8C146.8 245.8 169.7 223 169.7 195.8C169.7 222.9 191.9 245.8 219.5 245.8C247.1 245.8 268.5 223 268.5 195.8C268.5 222.9 292.1 245.8 319.7 245.8L320.2 245.8C347.8 245.8 371.4 223 371.4 195.8C371.4 222.9 392.9 245.8 420.4 245.8C447.9 245.8 470.2 223 470.2 195.8C470.2 222.9 493.2 245.8 520.7 245.8C543.7 245.8 569 222 569 195L569 173.7C568.6 160.8 525.8 111.6 504.1 98.7C436.7 96.4 389.9 96 320.1 96C250.3 96 155.1 97.1 135.9 98.8zM268.2 233.2C246.2 271.6 190.3 271.9 168.4 233.4C155.2 256.5 125.2 265.5 112.4 261.1C108.5 301.3 98.7 498.2 130.1 530.3C210.1 549 432.2 548.4 509.9 530.3C541.5 498 531.2 298.3 527.6 261.1C514.7 265.5 484.7 256.5 471.6 233.4C449.6 271.9 393.8 271.5 371.8 233.2C364.7 245.7 348.8 262.1 320 262.1C309.6 262.4 299.2 259.9 290.1 254.8C281 249.7 273.4 242.2 268.2 233.2L268.2 233.2zM226.6 287C243.1 287 257.7 287 275.8 306.8C305.1 303.8 334.7 303.8 364 306.8C382.2 287.1 396.8 287.1 413.2 287.1C465.5 287.1 478.4 364.6 497.1 431.5C514.4 493.7 491.6 495.2 463.1 495.2C421 493.6 397.6 463 397.6 432.4C358.3 438.8 295.7 441.2 242 432.4C242 463 218.7 493.6 176.5 495.2C148.1 495.1 125.3 493.6 142.6 431.5C161.3 364.5 174.2 287.1 226.5 287.1L226.5 287zM320 334.8C320 334.8 275.6 375.6 267.6 390L296.6 388.8L296.6 414.1C296.6 415.6 317.9 414.3 319.9 414.3C331.5 414.8 343.2 415.3 343.2 414.1L343.2 388.8L372.2 390C364.2 375.5 319.8 334.8 319.8 334.8L319.9 334.8z"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <h3>Arcana Mundi</h3>
+              <p>
+                Story-driven tactical RPG starring apprentice archivists who
+                restore forgotten spellcraft for modern platforms.
+              </p>
             </div>
+          </article>
+          <article class="card">
+            <div class="card__media">
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="
+                    assets/images/mystic-218.avif 218w,
+                    assets/images/mystic-436.avif 436w,
+                    assets/images/mystic-600.avif 600w
+                  "
+                  sizes="(min-width: 1200px) 260px, (min-width: 900px) 30vw, (min-width: 600px) 45vw, 75vw"
+                />
+                <source
+                  type="image/webp"
+                  srcset="
+                    assets/images/mystic-218.webp 218w,
+                    assets/images/mystic-436.webp 436w,
+                    assets/images/mystic-600.webp 600w
+                  "
+                  sizes="(min-width: 1200px) 260px, (min-width: 900px) 30vw, (min-width: 600px) 45vw, 75vw"
+                />
+                <img
+                  src="assets/images/mystic-600.webp"
+                  alt="Mystic Seals game cover"
+                  width="600"
+                  height="600"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
+            </div>
+            <div class="card__body">
+              <div class="card__platforms">
+                <button
+                  class="chip"
+                  type="button"
+                  data-label="Steam"
+                  aria-label="Steam"
+                >
+                  <svg
+                    class="chip__icon"
+                    viewBox="0 0 640 640"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M568 320C568 457 456.8 568 319.6 568C205.8 568 110 491.7 80.6 387.6L175.8 426.9C182.2 459 210.7 483.3 244.7 483.3C283.9 483.3 316.6 450.9 314.9 409.8L399.4 349.6C451.5 350.9 495.2 308.7 495.2 256.1C495.2 204.5 453.2 162.6 401.5 162.6C349.8 162.6 307.8 204.6 307.8 256.1L307.8 257.3L248.6 343C233.1 342.1 217.9 346.4 205.1 355.1L72 300.1C82.2 172.4 189.1 72 319.6 72C456.8 72 568 183 568 320zM227.7 448.3L197.2 435.7C202.8 447.3 212.5 456.5 224.4 461.5C251.3 472.7 282.2 459.9 293.4 433.1C298.8 420.1 298.9 405.8 293.5 392.8C288.1 379.8 278 369.6 265 364.2C252.1 358.8 238.3 359 226.1 363.6L257.6 376.6C277.4 384.8 286.8 407.5 278.5 427.3C270.2 447.2 247.5 456.5 227.7 448.3zM401.5 193.8C435.9 193.8 463.8 221.7 463.8 256.1C463.8 290.5 435.9 318.4 401.5 318.4C367.1 318.4 339.2 290.5 339.2 256.1C339.2 221.7 367.1 193.8 401.5 193.8zM401.6 302.8C427.4 302.8 448.4 281.8 448.4 256C448.4 230.2 427.4 209.2 401.6 209.2C375.8 209.2 354.8 230.2 354.8 256C354.8 281.8 375.8 302.8 401.6 302.8z"
+                    />
+                  </svg>
+                </button>
+                <button
+                  class="chip"
+                  type="button"
+                  data-label="Itch.io"
+                  aria-label="Itch.io"
+                >
+                  <svg
+                    class="chip__icon"
+                    viewBox="0 0 640 640"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M135.9 98.8C114.2 111.7 71.4 160.8 71 173.7L71 195C71 222.1 96.3 245.8 119.2 245.8C146.8 245.8 169.7 223 169.7 195.8C169.7 222.9 191.9 245.8 219.5 245.8C247.1 245.8 268.5 223 268.5 195.8C268.5 222.9 292.1 245.8 319.7 245.8L320.2 245.8C347.8 245.8 371.4 223 371.4 195.8C371.4 222.9 392.9 245.8 420.4 245.8C447.9 245.8 470.2 223 470.2 195.8C470.2 222.9 493.2 245.8 520.7 245.8C543.7 245.8 569 222 569 195L569 173.7C568.6 160.8 525.8 111.6 504.1 98.7C436.7 96.4 389.9 96 320.1 96C250.3 96 155.1 97.1 135.9 98.8zM268.2 233.2C246.2 271.6 190.3 271.9 168.4 233.4C155.2 256.5 125.2 265.5 112.4 261.1C108.5 301.3 98.7 498.2 130.1 530.3C210.1 549 432.2 548.4 509.9 530.3C541.5 498 531.2 298.3 527.6 261.1C514.7 265.5 484.7 256.5 471.6 233.4C449.6 271.9 393.8 271.5 371.8 233.2C364.7 245.7 348.8 262.1 320 262.1C309.6 262.4 299.2 259.9 290.1 254.8C281 249.7 273.4 242.2 268.2 233.2L268.2 233.2zM226.6 287C243.1 287 257.7 287 275.8 306.8C305.1 303.8 334.7 303.8 364 306.8C382.2 287.1 396.8 287.1 413.2 287.1C465.5 287.1 478.4 364.6 497.1 431.5C514.4 493.7 491.6 495.2 463.1 495.2C421 493.6 397.6 463 397.6 432.4C358.3 438.8 295.7 441.2 242 432.4C242 463 218.7 493.6 176.5 495.2C148.1 495.1 125.3 493.6 142.6 431.5C161.3 364.5 174.2 287.1 226.5 287.1L226.5 287zM320 334.8C320 334.8 275.6 375.6 267.6 390L296.6 388.8L296.6 414.1C296.6 415.6 317.9 414.3 319.9 414.3C331.5 414.8 343.2 415.3 343.2 414.1L343.2 388.8L372.2 390C364.2 375.5 319.8 334.8 319.8 334.8L319.9 334.8z"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <h3>Mystic Seals</h3>
+              <p>
+                Cooperative puzzle adventure where relic hunters break cursed
+                bindings using rhythm-based inputs and light synthesis.
+              </p>
+            </div>
+          </article>
         </div>
-        <div class="container text-center">
-            <p class="mb-5"></p>
-        </div>
+
+        <p class="small center mt-16">
+          Both titles are developed by Kivutar and are in active development
+          with console publishing support from
+          <span class="project-highlight">Project</span>
+          <span class="brand-accent">Crayon</span>.
+        </p>
+      </div>
     </section>
 
-    <section id="games" class="content-section bg-secondary text-white text-center">
-<!--
-    </section>
-    <section id="publishing" class="content-section bg-primary text-white text-center">
- -->
-        <div class="container">
-            <div class="content-section-heading">
-                <h3 class="text-muted mb-0 fs-4">Games</h3>
-                <h2 class="mb-2">The Shizuka Franchise</h2>
-                <p class="mb-1">In Active Development by Kivutar.</p>
-                <p class="mb-5"><em>Soon to be ported to home console systems near you!</em></p>
+    <!-- Porting & Publishing -->
+    <section id="publishing" class="section alt">
+      <div class="container reveal">
+        <h2 class="h2 center">Porting and Publishing</h2>
+
+        <div class="pp-grid">
+          <div>
+            <h3 class="h3">Indie And Homebrew Porting Services</h3>
+            <p>
+              <span class="project-highlight">Project</span>
+              <span class="brand-accent">Crayon</span> can help you transform
+              homebrew cartridge and fantasy console games into digital releases
+              on PlayStation, Switch, XBOX, and Steam.
+            </p>
+            <div
+              class="cta muted"
+              data-copy="justask@projectcrayon.dev"
+              aria-live="polite"
+            >
+              <span class="cta__email">justask@projectcrayon.dev</span>
+              <button
+                type="button"
+                class="cta__copy"
+                aria-label="Copy email address"
+              >
+                <svg
+                  class="cta__copy-icon"
+                  viewBox="0 0 640 640"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M480 400L288 400C279.2 400 272 392.8 272 384L272 128C272 119.2 279.2 112 288 112L421.5 112C425.7 112 429.8 113.7 432.8 116.7L491.3 175.2C494.3 178.2 496 182.3 496 186.5L496 384C496 392.8 488.8 400 480 400zM288 448L480 448C515.3 448 544 419.3 544 384L544 186.5C544 169.5 537.3 153.2 525.3 141.2L466.7 82.7C454.7 70.7 438.5 64 421.5 64L288 64C252.7 64 224 92.7 224 128L224 384C224 419.3 252.7 448 288 448zM160 192C124.7 192 96 220.7 96 256L96 512C96 547.3 124.7 576 160 576L352 576C387.3 576 416 547.3 416 512L416 496L368 496L368 512C368 520.8 360.8 528 352 528L160 528C151.2 528 144 520.8 144 512L144 256C144 247.2 151.2 240 160 240L176 240L176 192L160 192z"
+                  />
+                </svg>
+              </button>
+              <span class="cta__toast" role="status">Copied!</span>
             </div>
+          </div>
+          <div class="pp-illustration">
+            <picture>
+              <source
+                type="image/avif"
+                srcset="
+                  assets/images/sticker-320.avif 320w,
+                  assets/images/sticker-640.avif 640w
+                "
+                sizes="(min-width: 768px) 320px, 70vw"
+              />
+              <source
+                type="image/webp"
+                srcset="
+                  assets/images/sticker-320.webp 320w,
+                  assets/images/sticker-640.webp 640w
+                "
+                sizes="(min-width: 768px) 320px, 70vw"
+              />
+              <img
+                src="assets/images/sticker-320.webp"
+                alt="Purr balancing on a bubble buddy sticker"
+                width="320"
+                height="343"
+                loading="lazy"
+                decoding="async"
+                class="pp-illustration__img"
+                role="button"
+                tabindex="0"
+                aria-label="Animate Purr the cat"
+              />
+            </picture>
+          </div>
         </div>
-        <div class="row mx-5">
-            <div class="col-sm-12 col-lg-4 mb-4 px-lg-5">
-                <picture>
-                  <source  media="(max-width: 992px)" srcset="assets/img/shrinemaiden-noshadow.png">
-                  <img class="img-fluid"                 src="assets/img/shrinemaiden.png" >
-                </picture>
-            </div>
-            <div class="col-sm-12 col-lg-4 mb-4 px-lg-5">
-                <a href="https://www.mystic-seals.com" target="_blank"><picture>
-                  <source  media="(max-width: 992px)" srcset="assets/img/mystic_seals-noshadow.png">
-                  <img class="img-fluid"                 src="assets/img/mystic_seals.png" >
-                </a></picture>
-            </div>
-            <div class="col-sm-12 col-lg-4 mb-4 px-lg-5">
-                <picture>
-                  <source  media="(max-width: 992px)" srcset="assets/img/bubble-noshadow.png">
-                  <img class="img-fluid"                 src="assets/img/bubble.png" >
-                </picture>
-            </div>
-        </div>
+      </div>
     </section>
 
-    <section id="publishing" class="content-section bg-light text-dark text-center">
-        <div class="container">
-            <div class="content-section-heading">
-                <h3 class="text-secondary mb-0">Porting and Publishing</h3>
-                <h2 class="mb-4">Indie and Homebrew Porting Services</h2>
-                <p class="mb-4">
-                    Project Crayon can help you transform homebrew cartrige and fantasy console games into digital releases on Playstation, Switch, XBOX, and Steam.
-                </p>
-                <h4 class="mb-2">
-                    Have a game that you'd like to see get ported to game consoles?
-                </h4>
-                <a href="mailto:justask@projectcrayon.dev" style="font-size: 25px; color: rgb(200,200,255);"><span>justask@projectcrayon.dev</span></a>
-            </div>
+    <!-- Technology -->
+    <section id="technology" class="section">
+      <div class="container reveal">
+        <h2 class="h2 center">Technology</h2>
+        <div class="tiles">
+          <div class="tile">
+            <svg
+              class="tile-icon"
+              viewBox="0 0 640 640"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                fill="currentColor"
+                d="M448 128C554 128 640 214 640 320C640 426 554 512 448 512L192 512C86 512 0 426 0 320C0 214 86 128 192 128L448 128zM192 240C178.7 240 168 250.7 168 264L168 296L136 296C122.7 296 112 306.7 112 320C112 333.3 122.7 344 136 344L168 344L168 376C168 389.3 178.7 400 192 400C205.3 400 216 389.3 216 376L216 344L248 344C261.3 344 272 333.3 272 320C272 306.7 261.3 296 248 296L216 296L216 264C216 250.7 205.3 240 192 240zM432 336C414.3 336 400 350.3 400 368C400 385.7 414.3 400 432 400C449.7 400 464 385.7 464 368C464 350.3 449.7 336 432 336zM496 240C478.3 240 464 254.3 464 272C464 289.7 478.3 304 496 304C513.7 304 528 289.7 528 272C528 254.3 513.7 240 496 240z"
+              />
+            </svg>
+            <h3>Software Emulation</h3>
+            <p>The foundation that powers many re-releases of classics.</p>
+          </div>
+          <div class="tile">
+            <svg
+              class="tile-icon"
+              viewBox="0 0 640 640"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                fill="currentColor"
+                d="M480 272C480 317.9 465.1 360.3 440 394.7L566.6 521.4C579.1 533.9 579.1 554.2 566.6 566.7C554.1 579.2 533.8 579.2 521.3 566.7L394.7 440C360.3 465.1 317.9 480 272 480C157.1 480 64 386.9 64 272C64 157.1 157.1 64 272 64C386.9 64 480 157.1 480 272zM168 280L168 344C168 357.3 178.7 368 192 368C205.3 368 216 357.3 216 344L216 280C216 266.7 205.3 256 192 256C178.7 256 168 266.7 168 280zM248 184L248 344C248 357.3 258.7 368 272 368C285.3 368 296 357.3 296 344L296 184C296 170.7 285.3 160 272 160C258.7 160 248 170.7 248 184zM328 248L328 344C328 357.3 338.7 368 352 368C365.3 368 376 357.3 376 344L376 248C376 234.7 365.3 224 352 224C338.7 224 328 234.7 328 248z"
+              />
+            </svg>
+            <h3>Reverse Engineering</h3>
+            <p>
+              We revel in the opportunity to go digging through spooky closets
+              filled with tech skeletons.
+            </p>
+          </div>
+          <div class="tile">
+            <svg
+              class="tile-icon"
+              viewBox="0 0 640 640"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                fill="currentColor"
+                d="M262.8 65.8C271.8 62.1 282.1 64.1 289 71L345 127C354.4 136.4 354.4 151.6 345 160.9L289 216.9C282.1 223.8 271.8 225.8 262.8 222.1C253.8 218.4 248 209.7 248 200L248 176L224 176C206.3 176 192 190.3 192 208L192 422.7C220.3 435 240 463.2 240 496C240 540.2 204.2 576 160 576C115.8 576 80 540.2 80 496C80 463.2 99.7 435 128 422.7L128 208C128 155 171 112 224 112L248 112L248 88C248 78.3 253.8 69.5 262.8 65.8zM456 144C456 157.3 466.7 168 480 168C493.3 168 504 157.3 504 144C504 130.7 493.3 120 480 120C466.7 120 456 130.7 456 144zM448 217.3C419.7 205 400 176.8 400 144C400 99.8 435.8 64 480 64C524.2 64 560 99.8 560 144C560 176.8 540.3 205 512 217.3L512 432C512 485 469 528 416 528L392 528L392 552C392 561.7 386.2 570.5 377.2 574.2C368.2 577.9 357.9 575.9 351 569L295 513C285.6 503.6 285.6 488.4 295 479.1L351 423.1C357.9 416.2 368.2 414.2 377.2 417.9C386.2 421.6 392 430.3 392 440L392 464L416 464C433.7 464 448 449.7 448 432L448 217.3zM136 496C136 509.3 146.7 520 160 520C173.3 520 184 509.3 184 496C184 482.7 173.3 472 160 472C146.7 472 136 482.7 136 496z"
+              />
+            </svg>
+            <h3>FPGA Emulation</h3>
+            <p>Hardware running on hardware is not as hard as it sounds.</p>
+          </div>
+          <div class="tile">
+            <svg
+              class="tile-icon"
+              viewBox="0 0 640 640"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                fill="currentColor"
+                d="M64 144C64 117.5 85.5 96 112 96L208 96C234.5 96 256 117.5 256 144L256 160L384 160L384 144C384 117.5 405.5 96 432 96L528 96C554.5 96 576 117.5 576 144L576 240C576 266.5 554.5 288 528 288L432 288C405.5 288 384 266.5 384 240L384 224L256 224L256 240C256 247.3 254.3 254.3 251.4 260.5L320 352L400 352C426.5 352 448 373.5 448 400L448 496C448 522.5 426.5 544 400 544L304 544C277.5 544 256 522.5 256 496L256 400C256 392.7 257.7 385.7 260.6 379.5L192 288L112 288C85.5 288 64 266.5 64 240L64 144z"
+              />
+            </svg>
+            <h3>Tech Referrals</h3>
+            <p>
+              Our extensive connections across the industry can help you find
+              the support you need.
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
-<template>  <!-- commented out -->
-    <section id="projects" class="content-section">  <!-- re-add bg-light once scribble color is fixed -->
-        <div class="container">
-            <div class="content-section-heading text-center">
-                <h3 class="text-secondary mb-0">Projects</h3>
-                <h2 class="mb-0">CrayonStation</h2>
-                <h4 class="mb-5"><em>(coming soon)</em></h4>
-                <img class="img-fluid" src="assets/img/scribble.png">
-            </div>
+    <!-- Contact -->
+    <section id="contact" class="section alt">
+      <div class="container reveal center">
+        <h2 class="h2">Get In Touch</h2>
+        <div class="contact-mascot">
+          <picture>
+            <source
+              type="image/avif"
+              srcset="
+                assets/images/kintaro-contact-320.avif 320w,
+                assets/images/kintaro-contact-640.avif 640w,
+                assets/images/kintaro-contact-960.avif 960w
+              "
+              sizes="(min-width: 768px) 320px, 70vw"
+            />
+            <source
+              type="image/webp"
+              srcset="
+                assets/images/kintaro-contact-320.webp 320w,
+                assets/images/kintaro-contact-640.webp 640w,
+                assets/images/kintaro-contact-960.webp 960w
+              "
+              sizes="(min-width: 768px) 320px, 70vw"
+            />
+            <img
+              src="assets/images/kintaro-contact-320.png"
+              width="320"
+              height="239"
+              alt="Kintaro riding a koi waves at the reader"
+              class="contact-mascot__img"
+              role="button"
+              tabindex="0"
+              aria-label="Cheer with Kintaro"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
         </div>
+        <p>Send us an email with your inquiry at</p>
+        <div
+          class="cta muted"
+          data-copy="justask@projectcrayon.dev"
+          aria-live="polite"
+        >
+          <span class="cta__email">justask@projectcrayon.dev</span>
+          <button
+            type="button"
+            class="cta__copy"
+            aria-label="Copy email address"
+          >
+            <svg
+              class="cta__copy-icon"
+              viewBox="0 0 640 640"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                fill="currentColor"
+                d="M480 400L288 400C279.2 400 272 392.8 272 384L272 128C272 119.2 279.2 112 288 112L421.5 112C425.7 112 429.8 113.7 432.8 116.7L491.3 175.2C494.3 178.2 496 182.3 496 186.5L496 384C496 392.8 488.8 400 480 400zM288 448L480 448C515.3 448 544 419.3 544 384L544 186.5C544 169.5 537.3 153.2 525.3 141.2L466.7 82.7C454.7 70.7 438.5 64 421.5 64L288 64C252.7 64 224 92.7 224 128L224 384C224 419.3 252.7 448 288 448zM160 192C124.7 192 96 220.7 96 256L96 512C96 547.3 124.7 576 160 576L352 576C387.3 576 416 547.3 416 512L416 496L368 496L368 512C368 520.8 360.8 528 352 528L160 528C151.2 528 144 520.8 144 512L144 256C144 247.2 151.2 240 160 240L176 240L176 192L160 192z"
+              />
+            </svg>
+          </button>
+          <span class="cta__toast" role="status">Copied!</span>
+        </div>
+      </div>
     </section>
-</template>
 
-    <section id="services" class="content-section bg-primary text-white text-center">
-        <div class="container">
-            <div class="content-section-heading">
-                <h3 class="text-secondary mb-0">Technology</h3>
-                <h2 class="mb-5"></h2>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-lg-3 mb-5 mb-lg-0"
-                    data-aos="flip-up"
-                    data-aos-offset="100"
-                    data-aos-delay="0"
-                ><span class="mx-auto service-icon rounded-circle mb-3"><i class="icon-trophy" style="font-size: 47px;"></i></span>
-                    <h4><strong>Reverse Engineering</strong></h4>
-                    <p class="mb-0 text-faded">Learn from the mistakes of those who did it first.</p>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-5 mb-lg-0"
-                     data-aos="flip-up"
-                     data-aos-offset="100"
-                     data-aos-delay="100"
-                ><span class="mx-auto service-icon rounded-circle mb-3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1em" height="1em" fill="currentColor" style="font-size: 46px;">
-                            <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
-                            <path d="M78.6 5C69.1-2.4 55.6-1.5 47 7L7 47c-8.5 8.5-9.4 22-2.1 31.6l80 104c4.5 5.9 11.6 9.4 19 9.4h54.1l109 109c-14.7 29-10 65.4 14.3 89.6l112 112c12.5 12.5 32.8 12.5 45.3 0l64-64c12.5-12.5 12.5-32.8 0-45.3l-112-112c-24.2-24.2-60.6-29-89.6-14.3l-109-109V104c0-7.5-3.5-14.5-9.4-19L78.6 5zM19.9 396.1C7.2 408.8 0 426.1 0 444.1C0 481.6 30.4 512 67.9 512c18 0 35.3-7.2 48-19.9L233.7 374.3c-7.8-20.9-9-43.6-3.6-65.1l-61.7-61.7L19.9 396.1zM512 144c0-10.5-1.1-20.7-3.2-30.5c-2.4-11.2-16.1-14.1-24.2-6l-63.9 63.9c-3 3-7.1 4.7-11.3 4.7H352c-8.8 0-16-7.2-16-16V102.6c0-4.2 1.7-8.3 4.7-11.3l63.9-63.9c8.1-8.1 5.2-21.8-6-24.2C388.7 1.1 378.5 0 368 0C288.5 0 224 64.5 224 144l0 .8 85.3 85.3c36-9.1 75.8 .5 104 28.7L429 274.5c49-23 83-72.8 83-130.5zM56 432a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"></path>
-                        </svg></span>
-                    <h4><strong>Transpiling Solutions</strong></h4>
-                    <p class="mb-0 text-faded">Converting ancient machine languages into present day languages.</p>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-5 mb-lg-0"
-                    data-aos="flip-up"
-                    data-aos-offset="100"
-                    data-aos-delay="200"
-                ><span class="mx-auto service-icon rounded-circle mb-3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1em" height="1em" fill="currentColor" style="font-size: 50px;">
-                            <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
-                            <path d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75.2H464c26.5 0 48 21.5 48 48c0 18.5-10.5 34.6-25.9 42.6C497 275.4 504 288.9 504 304c0 23.4-16.8 42.9-38.9 47.1c4.4 7.3 6.9 15.8 6.9 24.9c0 21.3-13.9 39.4-33.1 45.6c.7 3.3 1.1 6.8 1.1 10.4c0 26.5-21.5 48-48 48H294.5c-19 0-37.5-5.6-53.3-16.1l-38.5-25.7C176 420.4 160 390.4 160 358.3V320 272 247.1c0-29.2 13.3-56.7 36-75l7.4-5.9c26.5-21.2 44.6-51 51.2-84.2l2.3-11.4c5.2-26 30.5-42.9 56.5-37.7zM32 192H96c17.7 0 32 14.3 32 32V448c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V224c0-17.7 14.3-32 32-32z"></path>
-                        </svg></span>
-                    <h4><strong>Referrals</strong></h4>
-                    <p class="mb-0 text-faded"><span>We get along with everyone!&nbsp; &nbsp;&nbsp;</span><i class="fa fa-heart"></i></p>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-5 mb-lg-0"
-                    data-aos="flip-up"
-                    data-aos-offset="100"
-                    data-aos-delay="300"
-                ><span class="mx-auto service-icon rounded-circle mb-3"><i class="icon ion-flag" style="font-size: 46px;"></i></span>
-                    <h4>Technical Strategies</h4>
-                    <p class="mb-0 text-faded">Laying forth the many paths to victory!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="contact" class="content-section bg-light">
-        <div class="content-section-heading text-center">
-            <h3 class="text-secondary mb-0">Contact</h3>
-            <h2 class="mb-5">Get in Touch</h2>
-            <p>Send us an email with your inquiry at</p>
-            <a href="mailto:justask@projectcrayon.dev" style="font-size: 25px;"><span>justask@projectcrayon.dev</span></a>
-        </div>
-    </section>
-    <footer class="footer text-center">
-        <div class="container">
-            <ul class="list-inline mb-5">
-                <li class="list-inline-item">&nbsp;</li>
-                <li class="list-inline-item">&nbsp;</li>
-                <li class="list-inline-item">&nbsp;<a class="link-light social-link rounded-circle" href="#"><i class="icon-social-github"></i></a></li>
-            </ul>
-            <p class="text-muted mb-0 small">Copyright &nbsp;© Project Crayon LLC 2024</p>
-        </div><a class="scroll-to-top rounded" href="#page-top"><i class="fa fa-angle-up"></i></a>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p class="tiny">
+          Copyright © <span class="project-highlight">Project</span>
+          <span class="brand-accent">Crayon</span> LLC 2024.
+        </p>
+      </div>
     </footer>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/aos-3.0.0.js"></script>
-    <script>
-        AOS.init({once: true});
-    </script>
-    <script src="assets/js/stylish-portfolio.js"></script>
-</body>
 
+    <script src="script.js" defer></script>
+  </body>
 </html>
