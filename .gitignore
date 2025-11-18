@@ -1,5 +1,7 @@
 .netlify/
 AGENTS.md
+scripts/
+tests/
 
 # Python bytecode and build artifacts
 __pycache__/

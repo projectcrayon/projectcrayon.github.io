@@ -57,6 +57,20 @@
       rel="preload"
       as="image"
       type="image/avif"
+      href="/assets/banner/space-3600.avif"
+      imagesrcset="
+        /assets/banner/space-1200.avif 1200w,
+        /assets/banner/space-1800.avif 1800w,
+        /assets/banner/space-2400.avif 2400w,
+        /assets/banner/space-3600.avif 3600w,
+        /assets/banner/space-7200.avif 7200w
+      "
+      imagesizes="100vw"
+    />
+    <link
+      rel="preload"
+      as="image"
+      type="image/avif"
       href="/assets/banner/earth-3600.avif"
       imagesrcset="
         /assets/banner/earth-1800.avif 1800w,
@@ -112,6 +126,47 @@
         role="img"
         aria-label="Collage of arcade heroes, consoles, and planets floating in a galaxy"
       >
+        <picture class="hero__layer">
+          <source
+            type="image/avif"
+            srcset="
+              assets/banner/space-1200.avif 1200w,
+              assets/banner/space-1800.avif 1800w,
+              assets/banner/space-2400.avif 2400w,
+              assets/banner/space-3600.avif 3600w,
+              assets/banner/space-7200.avif 7200w
+            "
+            sizes="100vw"
+          />
+          <source
+            type="image/webp"
+            srcset="
+              assets/banner/space-1200.webp 1200w,
+              assets/banner/space-1800.webp 1800w,
+              assets/banner/space-2400.webp 2400w,
+              assets/banner/space-3600.webp 3600w,
+              assets/banner/space-7200.webp 7200w
+            "
+            sizes="100vw"
+          />
+          <img
+            class="hero__piece hero__piece--space hero__piece--background"
+            src="assets/banner/space-3600.png"
+            srcset="
+              assets/banner/space-1200.png 1200w,
+              assets/banner/space-1800.png 1800w,
+              assets/banner/space-2400.png 2400w,
+              assets/banner/space-3600.png 3600w,
+              assets/banner/space-7200.png 7200w
+            "
+            sizes="100vw"
+            alt=""
+            width="7200"
+            height="2400"
+            decoding="async"
+            loading="eager"
+          />
+        </picture>
         <picture class="hero__layer">
           <source
             type="image/avif"

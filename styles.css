@@ -283,12 +283,15 @@ h1,
 html:not(.hero-bg-ready) .hero__piece--foreground {
   opacity: 0;
 }
+.hero__piece--space {
+  z-index: -1;
+}
 .hero__piece--stars {
-  z-index: 1;
+  z-index: 0;
   animation: hero-stars-parallax 36s ease-in-out infinite;
 }
 .hero__piece--earth {
-  z-index: 0;
+  z-index: 1;
   animation: none;
 }
 .hero__piece--stroke {
@@ -316,7 +319,7 @@ html:not(.hero-bg-ready) .hero__piece--foreground {
   --piece-left: 47.192;
   --piece-top: 60.1;
   --piece-width: 7.936;
-  animation: hero-handheld-vibrate 4.0s linear infinite;
+  animation: hero-handheld-vibrate 4s linear infinite;
 }
 .hero__piece--tabby {
   z-index: 6;
@@ -784,10 +787,10 @@ html:not(.hero-bg-ready) .hero__piece--foreground {
 
 @keyframes contact-mascot-shout {
   0% {
-    transform: translateY(0) rotate(0deg)  scale(1.0);
+    transform: translateY(0) rotate(0deg) scale(1);
   }
   10% {
-    transform: translateY(0) rotate(0deg)  scale(1.13);
+    transform: translateY(0) rotate(0deg) scale(1.13);
   }
   20% {
     transform: translateY(-6px) rotate(-1deg) scale(1.07);
@@ -802,10 +805,10 @@ html:not(.hero-bg-ready) .hero__piece--foreground {
     transform: translateY(3px) rotate(1deg) scale(1.13);
   }
   90% {
-    transform: translateY(3px) rotate(1deg) scale(1.10);
+    transform: translateY(3px) rotate(1deg) scale(1.1);
   }
   100% {
-    transform: translateY(0) rotate(0deg) scale(1.0);
+    transform: translateY(0) rotate(0deg) scale(1);
   }
 }
 @media (max-width: 820px) {

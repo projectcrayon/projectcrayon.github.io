@@ -59,7 +59,7 @@ const introCrayon = document.querySelector(".intro__interactive");
 const catSticker = document.querySelector(".pp-illustration__img");
 const contactMascot = document.querySelector(".contact-mascot__img");
 const heroBgPieces = document.querySelectorAll(
-  ".hero__piece--stars, .hero__piece--earth"
+  ".hero__piece--earth, .hero__piece--stars, .hero__piece--space"
 );
 
 if (heroBgPieces.length) {
