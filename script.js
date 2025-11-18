@@ -60,7 +60,6 @@ const heroCrayonTrigger = document.querySelector(".hero__crayon-trigger");
 const heroAhoBird = document.querySelector(".hero__piece--aho");
 const heroAhoDots = document.querySelector(".hero__aho-dots");
 const introCrayon = document.querySelector(".intro__interactive");
-const catSticker = document.querySelector(".pp-illustration__img");
 const contactMascot = document.querySelector(".contact-mascot__img");
 const heroBgPieces = document.querySelectorAll(
   ".hero__piece--earth, .hero__piece--stars, .hero__piece--space"
@@ -158,25 +157,6 @@ copyCtas.forEach((cta) => {
   });
 });
 
-if (catSticker) {
-  const animateCat = () => {
-    catSticker.classList.remove("is-purring");
-    void catSticker.offsetWidth;
-    catSticker.classList.add("is-purring");
-  };
-
-  catSticker.addEventListener("click", animateCat);
-  catSticker.addEventListener("keydown", (event) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      animateCat();
-    }
-  });
-  catSticker.addEventListener("animationend", () => {
-    catSticker.classList.remove("is-purring");
-  });
-}
-
 if (contactMascot) {
   const shout = () => {
     contactMascot.classList.remove("is-shouting");
@@ -201,7 +181,7 @@ const prefersReducedMotion = window.matchMedia
   ? window.matchMedia("(prefers-reduced-motion: reduce)")
   : null;
 
-const HERO_AHO_FLIGHT_DURATION = 3300;
+const HERO_AHO_FLIGHT_DURATION = 4200;
 const HERO_AHO_DOTS_INTERVAL = 800;
 let heroAhoBirdTimer;
 let heroAhoDotsInterval;
