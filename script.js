@@ -30,11 +30,15 @@ if (navToggle && navLinks.length) {
 }
 
 if (brandLink) {
+  const brandHref = brandLink.getAttribute("href") || "";
   brandLink.addEventListener("click", (event) => {
-    event.preventDefault();
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    if (navToggle && navToggle.checked) {
-      navToggle.checked = false;
+    const isHashLink = brandHref.startsWith("#");
+    if (isHashLink) {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      if (navToggle && navToggle.checked) {
+        navToggle.checked = false;
+      }
     }
   });
 }
