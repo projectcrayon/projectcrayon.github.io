@@ -354,22 +354,19 @@ html:not(.hero-bg-ready) .hero__piece--foreground {
   transform: rotate(4deg);
   transform-origin: center;
 }
-.hero__aho-frame {
+.hero__aho-mask {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  display: block;
-  pointer-events: none;
-  opacity: 0;
+  overflow: hidden;
 }
-.hero__aho-frame img {
+.hero__aho-sprite img {
   width: 100%;
   height: auto;
   display: block;
-}
-.hero__aho-frame--mid {
-  opacity: 1;
+  will-change: transform;
+  transform: translateY(-33.3333%);
 }
 .hero__aho-dots {
   position: absolute;
@@ -400,14 +397,8 @@ html:not(.hero-bg-ready) .hero__piece--foreground {
   opacity: 0.9;
   transform: scale(1);
 }
-.hero__piece--aho.is-flying .hero__aho-frame--down {
-  animation: hero-aho-flap-down 0.42s steps(1) infinite;
-}
-.hero__piece--aho.is-flying .hero__aho-frame--mid {
-  animation: hero-aho-flap-mid 0.42s steps(1) infinite;
-}
-.hero__piece--aho.is-flying .hero__aho-frame--up {
-  animation: hero-aho-flap-up 0.42s steps(1) infinite;
+.hero__piece--aho.is-flying .hero__aho-sprite img {
+  animation: hero-aho-flap 0.42s steps(3) infinite;
 }
 .hero__piece--crayonolith {
   z-index: 4;
@@ -608,41 +599,12 @@ html:not(.hero-bg-ready) .hero__piece--foreground {
     transform: rotate(-1.8deg);
   }
 }
-@keyframes hero-aho-flap-down {
-  0%,
-  32% {
-    opacity: 1;
+@keyframes hero-aho-flap {
+  0% {
+    transform: translateY(0);
   }
-  36%,
-  100% {
-    opacity: 0;
-  }
-}
-@keyframes hero-aho-flap-mid {
-  0%,
-  32% {
-    opacity: 0;
-  }
-  36%,
-  66% {
-    opacity: 1;
-  }
-  70%,
-  100% {
-    opacity: 0;
-  }
-}
-@keyframes hero-aho-flap-up {
-  0%,
-  66% {
-    opacity: 0;
-  }
-  70%,
-  98% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
+  to {
+    transform: translateY(-100%);
   }
 }
 @keyframes hero-tabby-float {
@@ -713,9 +675,6 @@ html:not(.hero-bg-ready) .hero__piece--foreground {
     animation: none !important;
     transition: none !important;
     opacity: 0;
-  }
-  .hero__aho-frame--mid {
-    opacity: 1;
   }
   .hero__piece--aho.is-flying {
     opacity: 1;
