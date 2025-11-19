@@ -14,15 +14,15 @@
       content="An Independent Game Developer and Digital Publisher. We work on all sorts of cool stuff."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/assets/images/galaxy-770.webp" />
+    <meta property="og:image" content="assets/images/galaxy-770.webp" />
     <link
       rel="icon"
       type="image/png"
-      href="/favicon/favicon-96x96.png"
+      href="favicon/favicon-96x96.png"
       sizes="96x96"
     />
-    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -30,26 +30,26 @@
     />
     <link
       rel="preload"
-      href="/assets/fonts/ProximaNovaAltBlack.woff2"
+      href="assets/fonts/ProximaNovaAltBlack.woff2"
       as="font"
       type="font/woff2"
       crossorigin
     />
 
     <!-- Main stylesheet -->
-    <link rel="preload" href="/styles.css?v=sam1" as="style" id="preload-css" />
-    <link rel="stylesheet" href="/styles.css?v=sam1" />
+    <link rel="preload" href="styles.css?v=sam1" as="style" id="preload-css" />
+    <link rel="stylesheet" href="styles.css?v=sam1" />
     <link
       rel="preload"
       as="image"
       type="image/avif"
-      href="/assets/banner/stars-3600.avif"
+      href="assets/banner/stars-3600.avif"
       imagesrcset="
-        /assets/banner/stars-1200.avif 1200w,
-        /assets/banner/stars-1800.avif 1800w,
-        /assets/banner/stars-2400.avif 2400w,
-        /assets/banner/stars-3600.avif 3600w,
-        /assets/banner/stars-7200.avif 7200w
+        assets/banner/stars-1200.avif 1200w,
+        assets/banner/stars-1800.avif 1800w,
+        assets/banner/stars-2400.avif 2400w,
+        assets/banner/stars-3600.avif 3600w,
+        assets/banner/stars-7200.avif 7200w
       "
       imagesizes="100vw"
     />
@@ -57,13 +57,13 @@
       rel="preload"
       as="image"
       type="image/avif"
-      href="/assets/banner/space-3600.avif"
+      href="assets/banner/space-3600.avif"
       imagesrcset="
-        /assets/banner/space-1200.avif 1200w,
-        /assets/banner/space-1800.avif 1800w,
-        /assets/banner/space-2400.avif 2400w,
-        /assets/banner/space-3600.avif 3600w,
-        /assets/banner/space-7200.avif 7200w
+        assets/banner/space-1200.avif 1200w,
+        assets/banner/space-1800.avif 1800w,
+        assets/banner/space-2400.avif 2400w,
+        assets/banner/space-3600.avif 3600w,
+        assets/banner/space-7200.avif 7200w
       "
       imagesizes="100vw"
     />
@@ -71,11 +71,11 @@
       rel="preload"
       as="image"
       type="image/avif"
-      href="/assets/banner/earth-3600.avif"
+      href="assets/banner/earth-3600.avif"
       imagesrcset="
-        /assets/banner/earth-1800.avif 1800w,
-        /assets/banner/earth-3600.avif 3600w,
-        /assets/banner/earth-7200.avif 7200w
+        assets/banner/earth-1800.avif 1800w,
+        assets/banner/earth-3600.avif 3600w,
+        assets/banner/earth-7200.avif 7200w
       "
       imagesizes="100vw"
       fetchpriority="high"
@@ -84,10 +84,10 @@
       rel="preload"
       as="image"
       type="image/avif"
-      href="/assets/banner/boy-trim-1349.avif"
+      href="assets/banner/boy-trim-1349.avif"
       imagesrcset="
-        /assets/banner/boy-trim-768.avif 768w,
-        /assets/banner/boy-trim-1349.avif 1349w
+        assets/banner/boy-trim-768.avif 768w,
+        assets/banner/boy-trim-1349.avif 1349w
       "
       imagesizes="100vw"
     />
@@ -117,6 +117,7 @@
           <a href="#contact">Contact</a>
         </nav>
       </div>
+      <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
     </header>
 
     <!-- Hero image -->
@@ -874,7 +875,7 @@
       <div class="container reveal">
         <h2 class="h2 center">Technology</h2>
         <div class="tiles">
-          <div class="tile">
+          <div class="tile tile--software">
             <svg
               class="tile-icon"
               viewBox="0 0 640 640"
@@ -889,7 +890,7 @@
             <h3>Software Emulation</h3>
             <p>The foundation that powers many re-releases of classics.</p>
           </div>
-          <div class="tile">
+          <div class="tile tile--reverse">
             <svg
               class="tile-icon"
               viewBox="0 0 640 640"
@@ -907,7 +908,7 @@
               filled with tech skeletons.
             </p>
           </div>
-          <div class="tile">
+          <div class="tile tile--fpga">
             <svg
               class="tile-icon"
               viewBox="0 0 640 640"
@@ -922,7 +923,7 @@
             <h3>FPGA Emulation</h3>
             <p>Hardware running on hardware is not as hard as it sounds.</p>
           </div>
-          <div class="tile">
+          <div class="tile tile--referrals">
             <svg
               class="tile-icon"
               viewBox="0 0 640 640"

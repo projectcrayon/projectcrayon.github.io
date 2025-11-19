@@ -99,6 +99,12 @@ h1,
 .brand-accent {
   color: var(--orange);
 }
+.title-xl .project-highlight {
+  text-shadow: 0 0 10px rgba(69, 216, 255, 0.3);
+}
+.title-xl .brand-accent {
+  text-shadow: 0 0 10px rgba(255, 138, 61, 0.3);
+}
 .lead {
   font-weight: 800;
   font-size: clamp(1.1rem, 1.2rem + 1vw, 1.8rem);
@@ -124,6 +130,16 @@ h1,
   background: rgba(16, 14, 30, 0.95);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+.scroll-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--cyan), var(--orange));
+  width: 0%;
+  transition: width 0.1s linear;
+  z-index: 11;
 }
 .nav {
   display: flex;
@@ -1198,24 +1214,45 @@ html:not(.hero-bg-ready) .hero__piece--foreground {
   align-items: stretch;
 }
 .tile {
-  border-radius: 20px;
-  padding: 20px 22px;
-  box-shadow: var(--shadow);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 32px 24px;
+  border-radius: var(--radius);
+  text-align: center;
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
   position: relative;
   overflow: hidden;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
-    box-shadow 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  background: #fff;
-  border: 1px solid rgba(148, 163, 184, 0.15);
 }
 .tile::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(140deg, rgba(255, 255, 255, 0.35), transparent);
-  opacity: 0.35;
+  background-image: radial-gradient(rgba(69, 216, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
   pointer-events: none;
-  transition: opacity 0.25s ease;
+}
+.tile:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.05);
+}
+.tile:hover::before {
+  opacity: 0.5;
+}
+.tile--software:hover {
+  border-color: #1e3a8a; /* Dark Blue */
+}
+.tile--reverse:hover {
+  border-color: #22c55e; /* Green */
+}
+.tile--fpga:hover {
+  border-color: var(--orange);
+}
+.tile--referrals:hover {
+  border-color: #a855f7; /* Purple */
 }
 .tile:hover,
 .tile:focus-within {
