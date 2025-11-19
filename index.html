@@ -6,7 +6,7 @@
     <title>Project Crayon</title>
     <meta
       name="description"
-      content="Technology that benefits an unchanging world."
+      content="Project Crayon: Independent Game Developer and Digital Publisher specializing in retro game porting, software emulation, and FPGA solutions."
     />
     <meta property="og:title" content="Project Crayon" />
     <meta
@@ -93,6 +93,7 @@
     />
   </head>
   <body>
+    <div id="scroll-sentinel" style="position: absolute; top: 0; height: 1px; width: 1px; pointer-events: none; opacity: 0;"></div>
     <!-- Header / Nav -->
     <header class="site-header">
       <div class="container nav">
@@ -100,15 +101,15 @@
           ><span class="project-highlight">Project</span>
           <span class="brand-accent">Crayon</span></a
         >
-        <input
+        <button
           id="nav-toggle"
-          class="nav-toggle"
-          type="checkbox"
+          class="burger"
           aria-label="Toggle navigation"
-        />
-        <label for="nav-toggle" class="burger" aria-hidden="true"
-          ><span></span
-        ></label>
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          <span></span>
+        </button>
         <nav class="nav-links">
           <a href="#games">Games</a>
           <a href="#publishing">Publishing</a>

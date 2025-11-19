@@ -15,16 +15,22 @@ targets.forEach((t) => io.observe(t));
 
 // Close mobile nav after selecting a link
 const navToggle = document.querySelector("#nav-toggle");
+const navLinksContainer = document.querySelector(".nav-links");
 const navLinks = document.querySelectorAll(".nav-links a");
 const brandLink = document.querySelector(".brand");
 const header = document.querySelector(".site-header");
 
-if (navToggle && navLinks.length) {
+if (navToggle && navLinksContainer) {
+  navToggle.addEventListener("click", () => {
+    const isExpanded = navToggle.getAttribute("aria-expanded") === "true";
+    navToggle.setAttribute("aria-expanded", !isExpanded);
+    navLinksContainer.classList.toggle("is-open");
+  });
+
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
-      if (navToggle.checked) {
-        navToggle.checked = false;
-      }
+      navToggle.setAttribute("aria-expanded", "false");
+      navLinksContainer.classList.remove("is-open");
     });
   });
 }
@@ -36,24 +42,31 @@ if (brandLink) {
     if (isHashLink) {
       event.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
-      if (navToggle && navToggle.checked) {
-        navToggle.checked = false;
+      if (navToggle && navLinksContainer) {
+        navToggle.setAttribute("aria-expanded", "false");
+        navLinksContainer.classList.remove("is-open");
       }
     }
   });
 }
 
-const syncHeaderState = () => {
-  if (!header) return;
-  if (window.scrollY > 24) {
-    header.classList.add("is-scrolled");
-  } else {
-    header.classList.remove("is-scrolled");
-  }
-};
+const scrollSentinel = document.querySelector("#scroll-sentinel");
 
-syncHeaderState();
-window.addEventListener("scroll", syncHeaderState);
+if (scrollSentinel && header) {
+  const headerObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          header.classList.add("is-scrolled");
+        } else {
+          header.classList.remove("is-scrolled");
+        }
+      });
+    },
+    { rootMargin: "-24px 0px 0px 0px" }
+  );
+  headerObserver.observe(scrollSentinel);
+}
 
 const heroCrayon = document.querySelector(".hero__piece--crayonolith");
 const heroCrayonTrigger = document.querySelector(".hero__crayon-trigger");
@@ -126,33 +139,31 @@ copyCtas.forEach((cta) => {
     }, 1800);
   };
 
-  const fallbackCopy = () => {
-    const temp = document.createElement("textarea");
-    temp.value = value;
-    temp.setAttribute("readonly", "");
-    temp.style.position = "absolute";
-    temp.style.left = "-9999px";
-    document.body.appendChild(temp);
-    temp.select();
-    try {
-      document.execCommand("copy");
-      showToast("Copied!");
-    } catch (error) {
-      showToast("Press Ctrl+C to copy");
-    }
-    document.body.removeChild(temp);
-  };
-
   button.addEventListener("click", async () => {
     if (navigator.clipboard && navigator.clipboard.writeText) {
       try {
         await navigator.clipboard.writeText(value);
         showToast("Copied!");
       } catch (error) {
-        fallbackCopy();
+        console.error("Failed to copy text: ", error);
+        showToast("Failed to copy");
       }
     } else {
-      fallbackCopy();
+      // Fallback for older browsers or non-secure contexts
+      try {
+        const temp = document.createElement("textarea");
+        temp.value = value;
+        temp.setAttribute("readonly", "");
+        temp.style.position = "absolute";
+        temp.style.left = "-9999px";
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand("copy");
+        document.body.removeChild(temp);
+        showToast("Copied!");
+      } catch (err) {
+        showToast("Press Ctrl+C to copy");
+      }
     }
   });
 });
