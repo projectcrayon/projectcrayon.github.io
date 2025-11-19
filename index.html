@@ -257,7 +257,10 @@
                 assets/banner/stroke-trim-2048.avif 2048w,
                 assets/banner/stroke-trim-3348.avif 3348w
               "
-              sizes="(max-width: 1023px) 71vw, 820px"
+              sizes="
+                (max-width: 1023px) 140vw,
+                min(1560px, 140vw)
+              "
             />
             <source
               type="image/webp"
@@ -268,7 +271,10 @@
                 assets/banner/stroke-trim-2048.webp 2048w,
                 assets/banner/stroke-trim-3348.webp 3348w
               "
-              sizes="(max-width: 1023px) 71vw, 820px"
+              sizes="
+                (max-width: 1023px) 140vw,
+                min(1560px, 140vw)
+              "
             />
             <img
               class="hero__piece hero__piece--stroke hero__piece--foreground"
@@ -280,7 +286,10 @@
                 assets/banner/stroke-trim-2048.png 2048w,
                 assets/banner/stroke-trim-3348.png 3348w
               "
-              sizes="(max-width: 1023px) 71vw, 820px"
+              sizes="
+                (max-width: 1023px) 140vw,
+                min(1560px, 140vw)
+              "
               alt=""
               width="3348"
               height="1391"
@@ -579,24 +588,34 @@
               type="image/avif"
               srcset="
                 assets/images/crayon-165.avif 165w,
-                assets/images/crayon-330.avif 330w
+                assets/images/crayon-230.avif 230w,
+                assets/images/crayon-330.avif 330w,
+                assets/images/crayon-460.avif 460w
               "
-              sizes="165px"
+              sizes="
+                (min-width: 820px) min(38vw, 230px),
+                clamp(110px, 32vw, 150px)
+              "
             />
             <source
               type="image/webp"
               srcset="
                 assets/images/crayon-165.webp 165w,
-                assets/images/crayon-330.webp 330w
+                assets/images/crayon-230.webp 230w,
+                assets/images/crayon-330.webp 330w,
+                assets/images/crayon-460.webp 460w
               "
-              sizes="165px"
+              sizes="
+                (min-width: 820px) min(38vw, 230px),
+                clamp(110px, 32vw, 150px)
+              "
             />
             <img
-              src="assets/images/crayon-165.webp"
+              src="assets/images/crayon-330.webp"
               alt="Crayon"
               class="intro__interactive"
-              width="165"
-              height="165"
+              width="330"
+              height="330"
               loading="lazy"
               decoding="async"
               role="button"
@@ -974,7 +993,11 @@
                 assets/images/kintaro-contact-640.avif 640w,
                 assets/images/kintaro-contact-960.avif 960w
               "
-              sizes="(min-width: 768px) 320px, 70vw"
+              sizes="
+                (min-width: 457px) 320px,
+                (max-width: 285px) 200px,
+                70vw
+              "
             />
             <source
               type="image/webp"
@@ -983,7 +1006,11 @@
                 assets/images/kintaro-contact-640.webp 640w,
                 assets/images/kintaro-contact-960.webp 960w
               "
-              sizes="(min-width: 768px) 320px, 70vw"
+              sizes="
+                (min-width: 457px) 320px,
+                (max-width: 285px) 200px,
+                70vw
+              "
             />
             <img
               src="assets/images/kintaro-contact-320.png"
