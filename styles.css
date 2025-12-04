@@ -347,6 +347,13 @@ html:not(.hero-bg-ready) .hero__piece--foreground {
   --piece-width: 18;
   animation: hero-tabby-float 14s ease-in-out infinite;
 }
+.hero__piece--bass {
+  z-index: 7;
+  --piece-left: 32;
+  --piece-top: 70.4;
+  --piece-width: 15.4;
+  animation: hero-bass-groove 13s ease-in-out infinite alternate;
+}
 .hero__piece--aho {
   z-index: 10;
   --piece-left: 74;
@@ -534,6 +541,17 @@ html:not(.hero-bg-ready) .hero__piece--foreground {
   }
   100% {
     transform: translate3d(0.8%, -2.6%, 0) rotate(0.6deg);
+  }
+}
+@keyframes hero-bass-groove {
+  0% {
+    transform: translate3d(-0.9%, 1.2%, 0) rotate(-10deg) scale(1.02);
+  }
+  50% {
+    transform: translate3d(0.7%, -1.4%, 0) rotate(-6deg) scale(1.01);
+  }
+  100% {
+    transform: translate3d(-0.4%, 0.8%, 0) rotate(-8deg) scale(1.02);
   }
 }
 @keyframes hero-handheld-vibrate {
@@ -1229,7 +1247,10 @@ html:not(.hero-bg-ready) .hero__piece--foreground {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(69, 216, 255, 0.1) 1px, transparent 1px);
+  background-image: radial-gradient(
+    rgba(69, 216, 255, 0.1) 1px,
+    transparent 1px
+  );
   background-size: 20px 20px;
   opacity: 0;
   transition: opacity 0.3s ease;
