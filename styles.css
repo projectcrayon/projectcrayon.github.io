@@ -256,6 +256,9 @@ h1,
   display: block;
   --hero-stage-ratio: 1.5666666667;
   --hero-stage-width: 100%;
+  --hero-spread: clamp(0px, (100vw - 540px) * 0.07, 128px);
+  --hero-shift-left: calc(var(--hero-spread) * -1);
+  --hero-shift-right: var(--hero-spread);
 }
 .hero__layer {
   display: block;
@@ -274,9 +277,10 @@ h1,
   --piece-top: 0;
   --piece-left: 0;
   --piece-width: 100;
+  --piece-shift: 0px;
   position: absolute;
   top: calc(var(--piece-top) * 1%);
-  left: calc(var(--piece-left) * 1%);
+  left: calc(var(--piece-left) * 1% + var(--piece-shift));
   width: calc(var(--piece-width) * 1%);
   height: auto;
   max-width: none;
@@ -324,6 +328,7 @@ html:not(.hero-bg-ready) .hero__piece--foreground {
   --piece-left: 6.553;
   --piece-top: 43;
   --piece-width: 28.702;
+  --piece-shift: calc(var(--hero-shift-left) * 1.4);
   animation: hero-boy-bob 8s ease-in-out infinite alternate;
 }
 .hero__piece--arcade {
@@ -331,6 +336,7 @@ html:not(.hero-bg-ready) .hero__piece--foreground {
   --piece-left: 57.319;
   --piece-top: 54.967;
   --piece-width: 16.298;
+  --piece-shift: calc(var(--hero-shift-right) * 1.3);
   animation: hero-arcade-shift 12s ease-in-out infinite alternate;
 }
 .hero__piece--handheld {
@@ -338,6 +344,7 @@ html:not(.hero-bg-ready) .hero__piece--foreground {
   --piece-left: 47.192;
   --piece-top: 60.1;
   --piece-width: 7.936;
+  --piece-shift: calc(var(--hero-shift-right) * 0.9);
   animation: hero-handheld-vibrate 4s linear infinite;
 }
 .hero__piece--tabby {
@@ -345,6 +352,7 @@ html:not(.hero-bg-ready) .hero__piece--foreground {
   --piece-left: 70;
   --piece-top: 25;
   --piece-width: 18;
+  --piece-shift: calc(var(--hero-shift-right) * 1.8);
   animation: hero-tabby-float 14s ease-in-out infinite;
 }
 .hero__piece--bass {
@@ -352,6 +360,7 @@ html:not(.hero-bg-ready) .hero__piece--foreground {
   --piece-left: 32;
   --piece-top: 70.4;
   --piece-width: 15.4;
+  --piece-shift: calc(var(--hero-shift-left) * 1);
   animation: hero-bass-groove 13s ease-in-out infinite alternate;
 }
 .hero__piece--aho {
